@@ -8,26 +8,22 @@ const classes = {
 };
 
 const props = withDefaults(defineProps<VLinkProps>(), {
-  to: "#",
-  external: false,
-  newtab: false,
+  newTab: false,
   variant: "default",
+  round: false,
 });
 
-const target = computed(() => (props.newtab ? "_blank" : ""));
+const target = computed(() => (props.newTab ? "_blank" : ""));
 const variantClass = computed(() => classes[props.variant]);
 </script>
 
 <template>
-  <a
-    v-if="external || newtab"
-    :href="props.to"
+  <NuxtLink
+    :to="props.to"
     :target="target"
-    :class="variantClass"
+    :class="[variantClass, { 'rounded-full': props.round }]"
+    class="inline-flex cursor-pointer"
   >
-    <slot />
-  </a>
-  <NuxtLink v-else :to="props.to" :class="variantClass">
     <slot />
   </NuxtLink>
 </template>

@@ -1,6 +1,8 @@
+import type { RouteLocationRaw } from "vue-router";
+
 export type VLinkProps = {
-  to?: string;
-  external?: boolean;
-  newtab?: boolean;
+  to?: RouteLocationRaw;
+  newTab?: boolean;
   variant?: "default" | "plain" | "background";
+  round?: boolean;
 };
