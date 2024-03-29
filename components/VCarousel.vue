@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { VCarouselProps } from "~/types/vcarousel.types";
+import type { VCarouselProps, VCarouselNav } from "~/types/vcarousel.types";
 
 const slide = defineModel<number>({ default: 0 });
 const props = withDefaults(defineProps<VCarouselProps>(), {
@@ -15,11 +15,28 @@ const setSlide = (index: number) => {
   if (index >= total.value) index = total.value - 1;
   slide.value = index;
 };
+const prev = () => {
+  const newValue = slide.value == 0 ? total.value - 1 : slide.value - 1;
+  setSlide(newValue);
+};
+const next = () => {
+  const newValue = slide.value == total.value - 1 ? 0 : slide.value + 1;
+  setSlide(newValue);
+};
 const onScroll = (e: WheelEvent) => {
   if (props.noScroll) return;
   const direction = Math.sign(e.deltaY);
   setSlide(slide.value + direction);
 };
+
+const nav: VCarouselNav = {
+  active: readonly(slide),
+  total: readonly(total),
+  set: setSlide,
+  prev,
+  next,
+};
+provide("nav", nav);
 
 onMounted(() => {
   total.value = slots.default!().length;
@@ -40,16 +57,12 @@ onBeforeUpdate(() => {
         <slot />
       </ul>
     </div>
-    <VCarouselNavigation
-      :active="slide"
-      :total="total"
-      @update:slide="setSlide"
-    />
+    <slot name="modules" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.v-carousel-navigation {
+:deep(.v-carousel-navigation) {
   position: absolute;
   left: 50%;
   bottom: 4px;

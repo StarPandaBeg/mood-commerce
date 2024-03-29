@@ -2,7 +2,10 @@ export type VCarouselProps = {
   noScroll?: boolean;
 };
 
-export type VCarouselNavigationProps = {
-  active: number;
-  total: number;
+export type VCarouselNav = {
+  active: Readonly<Ref<number>>;
+  total: Readonly<Ref<number>>;
+  prev: () => void;
+  next: () => void;
+  set: (index: number) => void;
 };

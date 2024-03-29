@@ -1,21 +1,22 @@
 <script lang="ts" setup>
-import type { VCarouselNavigationProps } from "~/types/vcarousel.types";
+import type { VCarouselNav } from "~/types/vcarousel.types";
 
-const props = withDefaults(defineProps<VCarouselNavigationProps>(), {});
-const emits = defineEmits(["update:slide"]);
+const nav = inject<VCarouselNav>("nav", {
+  active: ref(0),
+  total: ref(0),
+  prev: () => {},
+  next: () => {},
+  set: (index: number) => {},
+});
 
-const activeIndex = computed(() => props.active + 1);
+const activeIndex = computed(() => nav.active.value + 1);
 </script>
 
 <template>
   <div class="v-carousel-navigation">
     <ul class="flex py-4 gap-1">
-      <li v-for="index in props.total">
-        <a
-          href="#"
-          class="p-1"
-          @click.prevent="$emit('update:slide', index - 1)"
-        >
+      <li v-for="index in nav.total.value">
+        <a href="#" class="p-1" @click.prevent="nav.set(index - 1)">
           <span
             class="size-2 rounded-full inline-block"
             :class="index == activeIndex ? 'bg-orange-400' : 'bg-white/30'"
