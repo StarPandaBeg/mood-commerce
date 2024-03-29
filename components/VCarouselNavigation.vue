@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import type { VCarouselNav } from "~/types/vcarousel.types";
+import type { PageNav } from "~/types/page.types";
 
-const nav = inject<VCarouselNav>("nav", {
-  active: ref(0),
+const nav = inject<PageNav>("nav", {
+  current: ref(0),
   total: ref(0),
   prev: () => {},
   next: () => {},
   set: (index: number) => {},
 });
 
-const activeIndex = computed(() => nav.active.value + 1);
+const activeIndex = computed(() => nav.current.value + 1);
 </script>
 
 <template>

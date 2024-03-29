@@ -1,42 +1,23 @@
 <script lang="ts" setup>
-import type { VCarouselProps, VCarouselNav } from "~/types/vcarousel.types";
+import type { VCarouselProps } from "~/types/vcarousel.types";
 
-const slide = defineModel<number>({ default: 0 });
 const props = withDefaults(defineProps<VCarouselProps>(), {
   noScroll: false,
+  start: 0,
 });
 const slots = useSlots();
 
 const total = ref(slots.default!.length);
-const transform = computed(() => `translateX(-${slide.value * 100}%)`);
 
-const setSlide = (index: number) => {
-  if (index < 0) index = 0;
-  if (index >= total.value) index = total.value - 1;
-  slide.value = index;
-};
-const prev = () => {
-  const newValue = slide.value == 0 ? total.value - 1 : slide.value - 1;
-  setSlide(newValue);
-};
-const next = () => {
-  const newValue = slide.value == total.value - 1 ? 0 : slide.value + 1;
-  setSlide(newValue);
-};
+const page = usePage(total, props.start);
+const transform = computed(() => `translateX(-${page.current.value * 100}%)`);
+
 const onScroll = (e: WheelEvent) => {
   if (props.noScroll) return;
   const direction = Math.sign(e.deltaY);
-  setSlide(slide.value + direction);
+  page.set(page.current.value + direction);
 };
-
-const nav: VCarouselNav = {
-  active: readonly(slide),
-  total: readonly(total),
-  set: setSlide,
-  prev,
-  next,
-};
-provide("nav", nav);
+provide("nav", page);
 
 onMounted(() => {
   total.value = slots.default!().length;
