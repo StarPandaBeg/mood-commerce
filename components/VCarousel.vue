@@ -48,12 +48,3 @@ onBeforeUpdate(() => {
     <slot name="modules" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-:deep(.v-carousel-navigation) {
-  position: absolute;
-  left: 50%;
-  bottom: 4px;
-  transform: translateX(-50%);
-}
-</style>
