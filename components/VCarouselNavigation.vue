@@ -24,7 +24,11 @@ const isVertical = computed(
 </script>
 
 <template>
-  <div class="v-carousel-navigation" :class="directionClass">
+  <div
+    v-if="nav.total.value > 1"
+    class="v-carousel-navigation"
+    :class="directionClass"
+  >
     <ul class="flex p-4 gap-1" :class="{ 'flex-col': isVertical }">
       <li v-for="index in nav.total.value">
         <a href="#" class="p-1" @click.prevent="nav.set(index - 1)">
