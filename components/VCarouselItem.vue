@@ -1,5 +1,5 @@
 <template>
-  <li class="v-carousel__item w-full shrink-0 flex">
+  <li class="v-carousel__item flex w-full shrink-0">
     <slot />
   </li>
 </template>

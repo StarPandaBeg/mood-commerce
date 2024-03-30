@@ -27,11 +27,11 @@ watch(opened, async (value, oldValue) => {
   <div class="v-side-menu-container" v-bind="$attrs">
     <slot name="activator" :open="open" />
 
-    <VOverlay v-model="overlayOpened" @click.native="close">
+    <VOverlay v-model="overlayOpened" @click="close">
       <Transition name="slide" @after-leave="onCloseAnimationEnd">
         <div
           v-if="opened"
-          class="v-side-menu py-4 flex flex-col absolute left-0 top-0 h-full bg-slate-50"
+          class="v-side-menu absolute left-0 top-0 flex h-full flex-col bg-slate-50 py-4"
           :class="props.menuClasses"
           @click.stop
         >

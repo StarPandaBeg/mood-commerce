@@ -1,9 +1,9 @@
 <template>
-  <nav class="flex justify-between text-sm text-center sm:text-left">
+  <nav class="flex justify-between text-center text-sm sm:text-left">
     <div class="grow">
       <VLink>О проекте</VLink>
     </div>
-    <div class="hidden sm:flex gap-4">
+    <div class="hidden gap-4 sm:flex">
       <VLink>Покупателю</VLink>
       <VLink>Поставщику</VLink>
       <VLink>О бренде</VLink>

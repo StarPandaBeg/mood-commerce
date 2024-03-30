@@ -11,15 +11,15 @@ const nav = inject<PageNav>("nav", {
   total: ref(0),
   prev: () => {},
   next: () => {},
-  set: (index: number) => {},
+  set: () => {},
 });
 
 const activeIndex = computed(() => nav.current.value + 1);
 const directionClass = computed(
-  () => `v-carousel-navigation_${props.direction}`
+  () => `v-carousel-navigation_${props.direction}`,
 );
 const isVertical = computed(
-  () => props.direction == "left" || props.direction == "right"
+  () => props.direction == "left" || props.direction == "right",
 );
 </script>
 
@@ -29,11 +29,11 @@ const isVertical = computed(
     class="v-carousel-navigation"
     :class="directionClass"
   >
-    <ul class="flex p-4 gap-1" :class="{ 'flex-col': isVertical }">
-      <li v-for="index in nav.total.value">
+    <ul class="flex gap-1 p-4" :class="{ 'flex-col': isVertical }">
+      <li v-for="index in nav.total.value" :key="index">
         <a href="#" class="p-1" @click.prevent="nav.set(index - 1)">
           <span
-            class="size-2 rounded-full inline-block"
+            class="inline-block size-2 rounded-full"
             :class="index == activeIndex ? 'bg-orange-400' : 'bg-white/30'"
           ></span>
         </a>

@@ -38,7 +38,7 @@ onBeforeUpdate(() => {
   <div class="v-carousel relative">
     <div class="v-carousel__viewport overflow-x-hidden">
       <ul
-        class="v-carousel__items py-4 w-full flex transition-all"
+        class="v-carousel__items flex w-full py-4 transition-all"
         :style="{ transform: transform }"
         @wheel="onScroll"
       >

@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<VSideMenuItemProps>(), {
 
 <template>
   <li class="v-side-menu__item">
-    <VLink class="pl-8 pr-24 py-4 w-full" v-bind="props">
+    <VLink class="w-full py-4 pl-8 pr-24" v-bind="props">
       <slot></slot>
     </VLink>
   </li>

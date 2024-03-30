@@ -1,15 +1,15 @@
 <template>
-  <footer class="w-100 px-5 py-8 lg:py-16 bg-slate-200">
-    <div class="lg:px-5 lg:px-10 flex flex-col lg:flex-row justify-between">
+  <footer class="w-100 bg-slate-200 px-5 py-8 lg:py-16">
+    <div class="flex flex-col justify-between lg:flex-row lg:px-10 lg:px-5">
       <div>
         <img src="~/assets/images/mood-brand.png" class="h-8 object-contain" />
-        <p class="pt-2 lg:max-w-80 text-sm text-gray-500">
+        <p class="pt-2 text-sm text-gray-500 lg:max-w-80">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
           mi. Aliquam in hendrerit urna.
         </p>
       </div>
       <div
-        class="mt-5 lg:mt-0 flex flex-col lg:flex-row lg:justify-end grow gap-6"
+        class="mt-5 flex grow flex-col gap-6 lg:mt-0 lg:flex-row lg:justify-end"
       >
         <VFooterList title="Компания" class="xl:min-w-44">
           <VFooterListItem>О бренде</VFooterListItem>
@@ -36,7 +36,7 @@
             <p class="text-sm text-gray-500">Телефон:</p>
             <a
               href="tel:88001234567"
-              class="text-xl text-black/75 font-semibold"
+              class="text-xl font-semibold text-black/75"
             >
               8 800 123-45-67
             </a>
@@ -47,7 +47,7 @@
               E-Mail:
               <a
                 href="mailto:hello@mood.ru"
-                class="text-black/75 font-semibold"
+                class="font-semibold text-black/75"
               >
                 hello@mood.ru
               </a>
@@ -56,7 +56,7 @@
               Сотрудничество:
               <a
                 href="mailto:hello@mood.ru"
-                class="text-black/75 font-semibold"
+                class="font-semibold text-black/75"
               >
                 pr@mood.ru
               </a>

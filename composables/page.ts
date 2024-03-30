@@ -2,7 +2,7 @@ import type { PageNav } from "~/types/page.types";
 
 export function usePage(
   total: Readonly<Ref<number>> | number,
-  start: number = 0
+  start: number = 0,
 ): PageNav {
   const current = ref(start);
   const totalPages = toReadonlyRef(total);
@@ -29,8 +29,8 @@ export function usePage(
   };
 }
 
-function toReadonlyRef<T>(
-  value: Readonly<Ref<number>> | number
+function toReadonlyRef(
+  value: Readonly<Ref<number>> | number,
 ): Readonly<Ref<number>> {
   if (isRef(value)) return value;
   return readonly(toRef(value));

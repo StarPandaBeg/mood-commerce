@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="flex flex-col min-h-screen bg-slate-50">
+  <div id="main" class="flex min-h-screen flex-col bg-slate-50">
     <div class="px-5 py-2.5">
       <HeaderAdditional />
       <HeaderMain class="pt-4 md:pt-6" />

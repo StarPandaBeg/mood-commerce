@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <header class="flex justify-between items-center gap-6">
+  <header class="flex items-center justify-between gap-6">
     <VSideMenu
       title="Каталог"
       class="block md:hidden"
@@ -27,12 +27,12 @@ import {
         <VSideMenuItem>Аксессуары</VSideMenuItem>
       </template>
     </VSideMenu>
-    <div class="md:order-none pl-16 md:pl-0">
+    <div class="pl-16 md:order-none md:pl-0">
       <VLink to="/" variant="plain" title="Mood">
         <img src="~/assets/images/mood.png" class="size-8" />
       </VLink>
     </div>
-    <div class="hidden grow md:flex items-center">
+    <div class="hidden grow items-center md:flex">
       <nav>
         <ul class="flex font-medium">
           <li>

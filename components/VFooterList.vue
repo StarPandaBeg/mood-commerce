@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<VFooterListProps>(), {
 <template>
   <div class="flex flex-col gap-4">
     <h1
-      class="pb-1 w-full lg:w-auto decoration-gray-400 border-b-black/10 border-b-2 font-medium"
+      class="w-full border-b-2 border-b-black/10 pb-1 font-medium decoration-gray-400 lg:w-auto"
     >
       <slot name="header">{{ props.title }}</slot>
     </h1>

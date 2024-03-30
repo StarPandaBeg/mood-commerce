@@ -2,7 +2,7 @@ import type { WatchStopHandle } from "vue";
 
 export function useInterval(
   callback: () => void,
-  interval: Readonly<Ref<number>> | number
+  interval: Readonly<Ref<number>> | number,
 ) {
   let intervalID: ReturnType<typeof setInterval> | null = null;
   let stopWatch: WatchStopHandle;
@@ -30,7 +30,7 @@ export function useInterval(
 
 export function useTimeout(
   callback: () => void,
-  timeout: Readonly<Ref<number>> | number
+  timeout: Readonly<Ref<number>> | number,
 ) {
   let timeoutID: ReturnType<typeof setTimeout> | null = null;
   let stopWatch: WatchStopHandle;
