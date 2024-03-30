@@ -3,17 +3,36 @@ import {
   MagnifyingGlassIcon,
   HeartIcon,
   ShoppingBagIcon,
+  Bars3Icon,
 } from "@heroicons/vue/24/outline";
 </script>
 
 <template>
   <header class="flex justify-between items-center gap-6">
-    <div>
+    <VSideMenu
+      title="Каталог"
+      class="block md:hidden"
+      menu-classes="min-w-[50%]"
+    >
+      <template #activator="{ open }">
+        <VLink variant="background" round @click="open()">
+          <Bars3Icon class="size-8 opacity-50" />
+        </VLink>
+      </template>
+      <template #default>
+        <VSideMenuItem>Новинки</VSideMenuItem>
+        <VSideMenuItem>Бренды</VSideMenuItem>
+        <VSideMenuItem>Мужское</VSideMenuItem>
+        <VSideMenuItem>Женское</VSideMenuItem>
+        <VSideMenuItem>Аксессуары</VSideMenuItem>
+      </template>
+    </VSideMenu>
+    <div class="md:order-none pl-16 md:pl-0">
       <VLink to="/" variant="plain" title="Mood">
         <img src="~/assets/images/mood.png" class="size-8" />
       </VLink>
     </div>
-    <div class="grow flex items-center">
+    <div class="hidden grow md:flex items-center">
       <nav>
         <ul class="flex font-medium">
           <li>
@@ -34,7 +53,7 @@ import {
         </ul>
       </nav>
     </div>
-    <div>
+    <div class="">
       <ul class="flex gap-6">
         <li>
           <VLink>
