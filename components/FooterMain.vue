@@ -1,29 +1,31 @@
 <template>
-  <footer class="w-100 px-5 py-16 bg-slate-200">
-    <div class="px-10 flex justify-between">
+  <footer class="w-100 px-5 py-8 lg:py-16 bg-slate-200">
+    <div class="lg:px-5 lg:px-10 flex flex-col lg:flex-row justify-between">
       <div>
         <img src="~/assets/images/mood-brand.png" class="h-8 object-contain" />
-        <p class="pt-2 max-w-80 text-sm text-gray-500">
+        <p class="pt-2 lg:max-w-80 text-sm text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
           mi. Aliquam in hendrerit urna.
         </p>
       </div>
-      <div class="flex justify-end grow gap-6">
-        <VFooterList title="Компания" class="min-w-44">
+      <div
+        class="mt-5 lg:mt-0 flex flex-col lg:flex-row lg:justify-end grow gap-6"
+      >
+        <VFooterList title="Компания" class="xl:min-w-44">
           <VFooterListItem>О бренде</VFooterListItem>
           <VFooterListItem>Работа</VFooterListItem>
           <VFooterListItem>Контакты</VFooterListItem>
           <VFooterListItem>Клуб</VFooterListItem>
           <VFooterListItem>Оферта</VFooterListItem>
         </VFooterList>
-        <VFooterList title="Помощь" class="min-w-44">
+        <VFooterList title="Помощь" class="xl:min-w-44">
           <VFooterListItem>Магазины</VFooterListItem>
           <VFooterListItem>Оплата</VFooterListItem>
           <VFooterListItem>Доставка</VFooterListItem>
           <VFooterListItem>Как вернуть товар</VFooterListItem>
           <VFooterListItem>Вопросы и ответы</VFooterListItem>
         </VFooterList>
-        <VFooterList title="Мы в соцсетях" class="min-w-44">
+        <VFooterList title="Мы в соцсетях" class="xl:min-w-44">
           <VFooterListItem>ВКонтакте</VFooterListItem>
           <VFooterListItem>Telegram</VFooterListItem>
           <VFooterListItem>Instagram</VFooterListItem>
