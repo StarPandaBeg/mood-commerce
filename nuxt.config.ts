@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["@/assets/scss/main.scss"],
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/eslint-module", "@nuxtjs/tailwindcss"],
   vite: {
     css: {
       preprocessorOptions: {
