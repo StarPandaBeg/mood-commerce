@@ -7,3 +7,7 @@ export type VCarouselProps = {
 export type VCarouselPaginationProps = {
   direction?: "left" | "right" | "top" | "bottom";
 };
+
+export type VCarouselNavigationProps = {
+  hover?: boolean;
+};
