@@ -4,6 +4,6 @@ export type VCarouselProps = {
   autoPlay?: number;
 };
 
-export type VCarouselNavigationProps = {
+export type VCarouselPaginationProps = {
   direction?: "left" | "right" | "top" | "bottom";
 };

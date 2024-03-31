@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { PageNav } from "~/types/page.types";
-import type { VCarouselNavigationProps } from "~/types/vcarousel.types";
+import type { VCarouselPaginationProps } from "~/types/vcarousel.types";
 
-const props = withDefaults(defineProps<VCarouselNavigationProps>(), {
+const props = withDefaults(defineProps<VCarouselPaginationProps>(), {
   direction: "bottom",
 });
 
@@ -16,7 +16,7 @@ const nav = inject<PageNav>("nav", {
 
 const activeIndex = computed(() => nav.current.value + 1);
 const directionClass = computed(
-  () => `v-carousel-navigation_${props.direction}`,
+  () => `v-carousel-pagination_${props.direction}`,
 );
 const isVertical = computed(
   () => props.direction == "left" || props.direction == "right",
@@ -26,7 +26,7 @@ const isVertical = computed(
 <template>
   <div
     v-if="nav.total.value > 1"
-    class="v-carousel-navigation"
+    class="v-carousel-pagination"
     :class="directionClass"
   >
     <ul class="flex gap-1 p-4" :class="{ 'flex-col': isVertical }">
@@ -43,7 +43,7 @@ const isVertical = computed(
 </template>
 
 <style lang="scss" scoped>
-.v-carousel-navigation {
+.v-carousel-pagination {
   --v-carousel-side-offset: 4px;
 
   position: absolute;

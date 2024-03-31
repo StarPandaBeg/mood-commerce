@@ -5,7 +5,7 @@
     </VCarouselItem>
 
     <template #modules>
-      <VCarouselNavigation direction="left" />
+      <VCarouselPagination direction="left" />
     </template>
   </VCarousel>
 </template>
