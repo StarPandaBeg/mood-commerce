@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useInterval } from "~/composables/interval";
+import { useWindow } from "~/composables/window";
 import type { VCarouselProps } from "~/types/vcarousel.types";
 
 const props = withDefaults(defineProps<VCarouselProps>(), {
@@ -8,6 +9,7 @@ const props = withDefaults(defineProps<VCarouselProps>(), {
   autoPlay: -1,
 });
 const slots = useSlots();
+const window = useWindow();
 
 const total = ref(slots.default!.length);
 const autoPlay = computed(() => props.autoPlay);
@@ -22,6 +24,8 @@ const transform = computed(() => `translateX(-${page.current.value * 100}%)`);
 const onScroll = (e: WheelEvent) => {
   if (props.noScroll) return;
   if (total.value <= 1) return;
+  if (!window.breakpoints.md.value) return;
+
   e.preventDefault();
   const direction = Math.sign(e.deltaY);
   page.set(page.current.value + direction);
