@@ -21,6 +21,8 @@ const transform = computed(() => `translateX(-${page.current.value * 100}%)`);
 
 const onScroll = (e: WheelEvent) => {
   if (props.noScroll) return;
+  if (total.value <= 1) return;
+  e.preventDefault();
   const direction = Math.sign(e.deltaY);
   page.set(page.current.value + direction);
 };
