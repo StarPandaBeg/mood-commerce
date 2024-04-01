@@ -7,23 +7,39 @@ const props = withDefaults(defineProps<VCarouselProps>(), {
   noScroll: false,
   start: 0,
   autoPlay: -1,
+  perSlide: 1,
+  scrollFull: false,
 });
-const slots = useSlots();
 const window = useWindow();
 
-const total = ref(slots.default!.length);
-const autoPlay = computed(() => props.autoPlay);
+const totalItems = ref(0);
+const itemParent = ref<HTMLElement | null>(null);
 
-const page = usePage(total, props.start);
+const autoPlay = computed(() => props.autoPlay);
+const itemWidth = computed(() => `calc(100% / ${props.perSlide})`);
+const totalPartPages = computed(() => {
+  return totalItems.value - props.perSlide + 1;
+});
+const totalFullPages = computed(() =>
+  Math.floor(totalItems.value / props.perSlide),
+);
+const totalPages = computed(() => {
+  return props.scrollFull ? totalFullPages.value : totalPartPages.value;
+});
+const pageStep = computed(() => (props.scrollFull ? 1 : props.perSlide));
+
+const page = usePage(totalPages, props.start);
 useInterval(() => {
   page.next();
 }, readonly(autoPlay));
 
-const transform = computed(() => `translateX(-${page.current.value * 100}%)`);
+const transform = computed(
+  () => `translateX(-${(page.current.value * 100) / pageStep.value}%)`,
+);
 
 const onScroll = (e: WheelEvent) => {
   if (props.noScroll) return;
-  if (total.value <= 1) return;
+  if (totalPages.value <= 1) return;
   if (!window.breakpoints.md.value) return;
 
   e.preventDefault();
@@ -33,10 +49,10 @@ const onScroll = (e: WheelEvent) => {
 provide("nav", page);
 
 onMounted(() => {
-  total.value = slots.default!().length;
+  totalItems.value = itemParent.value!.childElementCount;
 });
 onBeforeUpdate(() => {
-  total.value = slots.default!().length;
+  totalItems.value = itemParent.value!.childElementCount;
 });
 </script>
 
@@ -44,6 +60,7 @@ onBeforeUpdate(() => {
   <div class="v-carousel relative">
     <div class="v-carousel__viewport overflow-x-hidden">
       <ul
+        ref="itemParent"
         class="v-carousel__items flex w-full py-4 transition-all"
         :style="{ transform: transform }"
         @wheel="onScroll"
@@ -54,3 +71,11 @@ onBeforeUpdate(() => {
     <slot name="modules" />
   </div>
 </template>
+
+<style lang="scss">
+.v-carousel__items {
+  .v-carousel__item {
+    width: v-bind(itemWidth);
+  }
+}
+</style>
