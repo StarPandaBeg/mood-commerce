@@ -4,6 +4,7 @@ import type { VCardProps } from "~/types/vcard.types";
 const classes = {
   default: "bg-white shadow",
   plain: "",
+  background: "hover:bg-black/5 active:bg-black/10",
 };
 
 const props = withDefaults(defineProps<VCardProps>(), {

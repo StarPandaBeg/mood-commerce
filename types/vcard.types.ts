@@ -8,5 +8,5 @@ export type VCardSubtitleProps = {
 
 export type VCardProps = VCardTitleProps &
   VCardSubtitleProps & {
-    variant?: "default" | "plain";
+    variant?: "default" | "plain" | "background";
   };
