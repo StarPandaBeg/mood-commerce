@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { CheckCircleIcon, FunnelIcon } from "@heroicons/vue/24/outline";
 import products from "~/data/products";
 import type { Product } from "~/types/data/product.types";
 import type { FilterSelectProps } from "~/types/filter.types";
@@ -79,7 +80,34 @@ const selectables: FilterSelectProps[] = [
       <VLink>Новинки</VLink>
     </VBreadcrumbs>
     <div class="grid grid-cols-1 md:grid-cols-5">
-      <div class="col-span-1 px-4 text-lg tracking-tight">
+      <div class="col-span-1 py-2 md:hidden">
+        <VSideMenu>
+          <template #activator="{ open }">
+            <VLink variant="button" @click="open()">
+              <FunnelIcon class="size-6" />
+              <span class="pl-2">Фильтры</span>
+            </VLink>
+          </template>
+          <template #default>
+            <div class="max-w-[75vw] px-8 pb-4">
+              <h1>Фильтр</h1>
+              <div class="product-filters flex flex-col gap-6 pr-4 pt-4">
+                <FilterRange title="Цена" :min="minPrice" :max="maxPrice" />
+                <FilterSelect
+                  v-for="(item, i) in selectables"
+                  :key="i"
+                  v-bind="item"
+                />
+              </div>
+            </div>
+            <VSideMenuItem>
+              <CheckCircleIcon class="size-6" />
+              <span class="pl-2">Применить</span>
+            </VSideMenuItem>
+          </template>
+        </VSideMenu>
+      </div>
+      <div class="col-span-1 hidden px-4 text-lg tracking-tight md:block">
         <h1>Фильтр</h1>
         <div class="product-filters flex flex-col gap-6 pr-4 pt-4">
           <FilterRange title="Цена" :min="minPrice" :max="maxPrice" />
