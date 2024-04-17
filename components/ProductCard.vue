@@ -60,14 +60,20 @@ const image = computed(() => {
 <style lang="scss" scoped>
 .product-card {
   &__favorite {
-    opacity: 0;
+    button {
+      opacity: 0;
+
+      &:focus {
+        opacity: 1;
+      }
+    }
   }
   &__additional {
     opacity: 0;
   }
 
   &:hover {
-    .product-card__favorite {
+    .product-card__favorite button {
       opacity: 1;
     }
 
