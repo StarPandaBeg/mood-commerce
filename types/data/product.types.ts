@@ -8,7 +8,7 @@ export type Product = {
   slug: string;
   additional?: {
     sizes?: string[];
-    sex?: string;
+    gender?: string;
     color?: string;
   };
 };
