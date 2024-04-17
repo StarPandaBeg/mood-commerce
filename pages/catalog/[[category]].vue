@@ -4,6 +4,19 @@ import products from "~/data/products";
 import type { Product } from "~/types/data/product.types";
 import type { FilterSelectProps } from "~/types/filter.types";
 
+const route = useRoute();
+const categoryName = ref<string>(route.params.category as string);
+const categories: Record<string, string> = {
+  new: "Новинки",
+  man: "Мужское",
+  woman: "Женское",
+  accessories: "Аксессуары",
+};
+if (!Object.hasOwn(categories, categoryName.value)) {
+  throw createError({ statusCode: 404, statusMessage: "Category not found" });
+}
+const category = computed(() => categories[categoryName.value]);
+
 const data = ref<Product[]>(products);
 
 const minPrice = products.reduce((p, c) => (p.price < c.price ? p : c)).price;
@@ -77,7 +90,7 @@ const selectables: FilterSelectProps[] = [
     <VBreadcrumbs>
       <VLink to="/">Главная</VLink>
       <VLink>Каталог</VLink>
-      <VLink>Новинки</VLink>
+      <VLink>{{ category }}</VLink>
     </VBreadcrumbs>
     <div class="grid grid-cols-1 md:grid-cols-5">
       <div class="col-span-1 py-2 md:hidden">
