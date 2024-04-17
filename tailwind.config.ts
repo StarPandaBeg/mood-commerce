@@ -1,3 +1,5 @@
+import vueform from "@vueform/slider/tailwind";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [],
@@ -6,5 +8,5 @@ export default {
       sans: ["Montserrat", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [vueform],
 };
