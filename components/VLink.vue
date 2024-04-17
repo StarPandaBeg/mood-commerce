@@ -5,6 +5,8 @@ const classes = {
   default: "opacity-50 hover:opacity-100 active:opacity-75",
   plain: "",
   background: "hover:bg-black/5 active:bg-black/10",
+  button:
+    "w-full flex items-center justify-center px-6 py-4 opacity-50 hover:opacity-100 active:opacity-75 border rounded",
 };
 
 const props = withDefaults(defineProps<VLinkProps>(), {
