@@ -30,8 +30,13 @@ const items: {
           <Bars3Icon class="size-8 opacity-50" />
         </VLink>
       </template>
-      <template #default>
-        <VSideMenuItem v-for="(item, i) in items" :key="i" :to="item.to">
+      <template #default="{ close }">
+        <VSideMenuItem
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          @click="close()"
+        >
           {{ item.title }}
         </VSideMenuItem>
       </template>
