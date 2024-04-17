@@ -43,8 +43,8 @@ watch(opened, async (value, oldValue) => {
               {{ props.title }}
             </h1>
           </slot>
-          <ul class="v-side-menu__items py-4">
-            <slot />
+          <ul class="v-side-menu__items overflow-auto py-4">
+            <slot :close="close" />
           </ul>
           <slot name="append" />
           <div class="v-side-menu__footer mt-auto">
