@@ -5,6 +5,17 @@ import {
   ShoppingBagIcon,
   Bars3Icon,
 } from "@heroicons/vue/24/outline";
+
+const items: {
+  title: string;
+  to?: string;
+}[] = [
+  { title: "Новинки", to: "/catalog/new" },
+  { title: "Бренды" },
+  { title: "Мужское", to: "/catalog/man" },
+  { title: "Женское", to: "/catalog/woman" },
+  { title: "Аксессуары", to: "/catalog/accessories" },
+];
 </script>
 
 <template>
@@ -20,11 +31,9 @@ import {
         </VLink>
       </template>
       <template #default>
-        <VSideMenuItem>Новинки</VSideMenuItem>
-        <VSideMenuItem>Бренды</VSideMenuItem>
-        <VSideMenuItem>Мужское</VSideMenuItem>
-        <VSideMenuItem>Женское</VSideMenuItem>
-        <VSideMenuItem>Аксессуары</VSideMenuItem>
+        <VSideMenuItem v-for="(item, i) in items" :key="i" :to="item.to">
+          {{ item.title }}
+        </VSideMenuItem>
       </template>
     </VSideMenu>
     <div class="pl-16 md:order-none md:pl-0">
@@ -35,20 +44,10 @@ import {
     <div class="hidden grow items-center md:flex">
       <nav>
         <ul class="flex font-medium">
-          <li>
-            <VLink variant="background" class="px-3 py-4">Новинки</VLink>
-          </li>
-          <li>
-            <VLink variant="background" class="px-3 py-4">Бренды</VLink>
-          </li>
-          <li>
-            <VLink variant="background" class="px-3 py-4">Мужское</VLink>
-          </li>
-          <li>
-            <VLink variant="background" class="px-3 py-4">Женское</VLink>
-          </li>
-          <li>
-            <VLink variant="background" class="px-3 py-4">Аксессуары</VLink>
+          <li v-for="(item, i) in items" :key="i">
+            <VLink :to="item.to" variant="background" class="px-3 py-4">
+              {{ item.title }}
+            </VLink>
           </li>
         </ul>
       </nav>
