@@ -152,7 +152,7 @@ export default <Product[]>[
     additional: {
       sizes: ["S", "M", "L"],
       gender: "м",
-      color: "Зеленый",
+      color: "Зелёный",
     },
   },
   {
@@ -236,7 +236,7 @@ export default <Product[]>[
     additional: {
       sizes: ["XS", "S", "M", "L"],
       gender: "м",
-      color: "Черный",
+      color: "Чёрный",
     },
   },
   {
