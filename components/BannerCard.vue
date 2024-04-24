@@ -1,7 +1,16 @@
 <script lang="ts" setup>
-import type { BannerCardProps } from "~/types/bannercard.types";
+import type { VLinkProps } from "./VLink.vue";
 
-const props = withDefaults(defineProps<BannerCardProps>(), {});
+export type BannerCardProps = VLinkProps & {
+  title?: string;
+  subtitle?: string;
+  imagePath: string;
+};
+
+const props = withDefaults(defineProps<BannerCardProps>(), {
+  title: "",
+  subtitle: "",
+});
 </script>
 
 <template>

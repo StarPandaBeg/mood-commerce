@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import type { VFooterListProps } from "~/types/vfooterlist.types";
+export type VFooterListProps = {
+  title?: string;
+};
 
 const props = withDefaults(defineProps<VFooterListProps>(), {
   title: "",

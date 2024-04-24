@@ -1,5 +1,12 @@
 <script lang="ts" setup>
-import type { VLinkProps } from "~/types/vlink.types";
+import type { RouteLocationRaw } from "vue-router";
+
+export type VLinkProps = {
+  to?: RouteLocationRaw;
+  newTab?: boolean;
+  variant?: "default" | "plain" | "background" | "button";
+  round?: boolean;
+};
 
 const classes = {
   default: "opacity-50 hover:opacity-100 active:opacity-75",
@@ -10,6 +17,7 @@ const classes = {
 };
 
 const props = withDefaults(defineProps<VLinkProps>(), {
+  to: undefined,
   newTab: false,
   variant: "default",
   round: false,

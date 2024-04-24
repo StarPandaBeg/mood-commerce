@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import type { FilterRangeProps } from "~/types/filter.types";
 import Slider from "@vueform/slider";
+import type { FilterBaseProps } from "./FilterBase.vue";
 
+export type FilterRangeProps = FilterBaseProps & {
+  min: number;
+  max: number;
+};
 const props = defineProps<FilterRangeProps>();
 
 const min = ref(props.min);

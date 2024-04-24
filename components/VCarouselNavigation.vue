@@ -4,7 +4,10 @@ import {
   ArrowRightCircleIcon,
 } from "@heroicons/vue/24/outline";
 import type { PageNav } from "~/types/page.types";
-import type { VCarouselNavigationProps } from "~/types/vcarousel.types";
+
+export type VCarouselNavigationProps = {
+  hover?: boolean;
+};
 
 const props = withDefaults(defineProps<VCarouselNavigationProps>(), {
   hover: false,

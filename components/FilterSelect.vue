@@ -1,5 +1,10 @@
 <script lang="ts" setup>
-import type { FilterSelectProps } from "~/types/filter.types";
+import type { FilterBaseProps } from "./FilterBase.vue";
+
+export type FilterSelectProps = FilterBaseProps & {
+  items: string[];
+  multiple?: boolean;
+};
 
 const props = withDefaults(defineProps<FilterSelectProps>(), {
   multiple: false,

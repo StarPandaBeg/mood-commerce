@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import type { VCardTitleProps } from "~/types/vcard.types";
+export type VCardTitleProps = {
+  title?: string;
+};
 
-const props = withDefaults(defineProps<VCardTitleProps>(), {});
+const props = withDefaults(defineProps<VCardTitleProps>(), {
+  title: "",
+});
 </script>
 
 <template>

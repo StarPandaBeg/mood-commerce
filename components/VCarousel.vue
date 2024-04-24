@@ -1,7 +1,14 @@
 <script lang="ts" setup>
 import { useInterval } from "~/composables/interval";
 import { useWindow } from "~/composables/window";
-import type { VCarouselProps } from "~/types/vcarousel.types";
+
+export type VCarouselProps = {
+  noScroll?: boolean;
+  start?: number;
+  autoPlay?: number;
+  perSlide?: number;
+  scrollFull?: boolean;
+};
 
 const props = withDefaults(defineProps<VCarouselProps>(), {
   noScroll: false,

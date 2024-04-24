@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-import type { VSideMenuProps } from "~/types/vsidemenu.types";
+export type VSideMenuProps = {
+  title?: string | null;
+  menuClasses?: string;
+};
 
 defineOptions({
   inheritAttrs: false,
@@ -9,6 +12,7 @@ const overlayOpened = ref(false);
 
 const props = withDefaults(defineProps<VSideMenuProps>(), {
   title: null,
+  menuClasses: undefined,
 });
 
 const open = () => (opened.value = true);

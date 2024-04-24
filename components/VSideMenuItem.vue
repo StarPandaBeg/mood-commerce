@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import type { VSideMenuItemProps } from "~/types/vsidemenu.types";
+import type { VLinkProps } from "./VLink.vue";
+
+export type VSideMenuItemProps = VLinkProps & {};
 
 const props = withDefaults(defineProps<VSideMenuItemProps>(), {
   variant: "background",

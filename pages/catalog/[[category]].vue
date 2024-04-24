@@ -2,7 +2,7 @@
 import { CheckCircleIcon, FunnelIcon } from "@heroicons/vue/24/outline";
 import products from "~/data/products";
 import type { Product } from "~/types/data/product.types";
-import type { FilterSelectProps } from "~/types/filter.types";
+import type { FilterSelectProps } from "~/components/FilterSelect.vue";
 
 const route = useRoute();
 const categoryName = ref<string>(route.params.category as string);

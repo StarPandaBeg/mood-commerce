@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import type { PageNav } from "~/types/page.types";
-import type { VCarouselPaginationProps } from "~/types/vcarousel.types";
+
+export type VCarouselPaginationProps = {
+  direction?: "left" | "right" | "top" | "bottom";
+};
 
 const props = withDefaults(defineProps<VCarouselPaginationProps>(), {
   direction: "bottom",

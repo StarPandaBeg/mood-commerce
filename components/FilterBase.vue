@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import type { FilterBaseProps } from "~/types/filter.types";
+export type FilterBaseProps = {
+  title: string;
+};
 
 const props = defineProps<FilterBaseProps>();
 </script>

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import type { VFooterListItemProps } from "~/types/vfooterlist.types";
+import type { VLinkProps } from "./VLink.vue";
+
+export type VFooterListItemProps = VLinkProps & {};
 
 const props = withDefaults(defineProps<VFooterListItemProps>(), {});
 </script>

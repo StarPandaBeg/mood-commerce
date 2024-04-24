@@ -1,5 +1,11 @@
 <script lang="ts" setup>
-import type { VCardProps } from "~/types/vcard.types";
+import type { VCardSubtitleProps } from "./VCardSubtitle.vue";
+import type { VCardTitleProps } from "./VCardTitle.vue";
+
+export type VCardProps = VCardTitleProps &
+  VCardSubtitleProps & {
+    variant?: "default" | "plain" | "background";
+  };
 
 const classes = {
   default: "bg-white shadow",
