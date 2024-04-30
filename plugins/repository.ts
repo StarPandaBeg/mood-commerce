@@ -1,6 +1,9 @@
 import { $fetch, type FetchOptions } from "ofetch";
+import ProductsModule from "~/repository/modules/products";
 
-interface IApiInstance {}
+interface IApiInstance {
+  products: ProductsModule;
+}
 
 export default defineNuxtPlugin((nuxtApp) => {
   const fetchOptions: FetchOptions = {
@@ -8,7 +11,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   };
   const fetcher = $fetch.create(fetchOptions);
 
-  const modules: IApiInstance = {};
+  const modules: IApiInstance = {
+    products: new ProductsModule(fetcher),
+  };
   return {
     provide: {
       api: modules,
