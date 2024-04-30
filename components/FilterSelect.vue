@@ -21,18 +21,20 @@ const inputType = computed(() => (props.multiple ? "checkbox" : "radio"));
       class="product-filter-select__checkbox"
     >
       <label class="flex items-center">
-        <input
-          :type="inputType"
-          :name="name"
-          :checked="i == 0 && !props.multiple"
-          class="product-filter-select__input"
-        />
-        <div class="product-filter-select__checkmark"></div>
-        <span
-          class="product-filter-select__label pl-2 text-sm font-medium text-black/75"
-        >
-          {{ item }}
-        </span>
+        <ClientOnly>
+          <input
+            :type="inputType"
+            :name="name"
+            :checked="i == 0 && !props.multiple"
+            class="product-filter-select__input"
+          />
+          <div class="product-filter-select__checkmark"></div>
+          <span
+            class="product-filter-select__label pl-2 text-sm font-medium text-black/75"
+          >
+            {{ item }}
+          </span>
+        </ClientOnly>
       </label>
     </div>
   </FilterBase>
