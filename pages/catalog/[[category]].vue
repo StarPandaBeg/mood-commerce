@@ -1,88 +1,21 @@
 <script lang="ts" setup>
 import { CheckCircleIcon, FunnelIcon } from "@heroicons/vue/24/outline";
-import products from "~/data/products";
 import type { Product } from "~/types/data/product.types";
 import type { FilterSelectProps } from "~/components/FilterSelect.vue";
+import type { Category } from "~/types/data/category.types";
 
 const route = useRoute();
-const categoryName = ref<string>(route.params.category as string);
-const categories: Record<string, string> = {
-  new: "Новинки",
-  man: "Мужское",
-  woman: "Женское",
-  accessories: "Аксессуары",
-};
-if (!Object.hasOwn(categories, categoryName.value)) {
-  throw createError({ statusCode: 404, statusMessage: "Category not found" });
-}
-const category = computed(() => categories[categoryName.value]);
+const { $api } = useNuxtApp();
 
-const data = ref<Product[]>(products);
+const category = ref<Category>(
+  await $api.categories.bySlug(route.params.category as string),
+);
 
-const minPrice = products.reduce((p, c) => (p.price < c.price ? p : c)).price;
-const maxPrice = products.reduce((p, c) => (p.price > c.price ? p : c)).price;
-const selectables: FilterSelectProps[] = [
-  {
-    title: "Пол",
-    items: ["Мужской", "Женский"],
-    multiple: true,
-  },
-  {
-    title: "Категория",
-    items: [
-      "Блузка",
-      "Джинсы",
-      "Кардиган",
-      "Костюм",
-      "Куртка",
-      "Пальто",
-      "Пиджак",
-      "Платье",
-      "Рубашка",
-      "Свитер",
-      "Толстовка",
-      "Футболка",
-      "Шорты",
-    ],
-    multiple: true,
-  },
-  {
-    title: "Размер",
-    items: ["XS", "S", "M", "L", "XL"],
-    multiple: true,
-  },
-  {
-    title: "Цвет",
-    items: [
-      "Белый",
-      "Бежевый",
-      "Голубой",
-      "Зелёный",
-      "Красный",
-      "Серый",
-      "Синий",
-      "Чёрный",
-    ],
-    multiple: true,
-  },
-  {
-    title: "Бренд",
-    items: [
-      "Berry",
-      "Calvina",
-      "EliteWear",
-      "ImperialOutfit",
-      "La Coste",
-      "Mood",
-      "OnlyYou",
-      "RLauren",
-      "The North Face",
-      "YourStyle",
-      "WinterPremium",
-    ],
-    multiple: true,
-  },
-];
+const data = ref<Product[]>(await $api.products.all());
+const minMax = ref(await $api.products.getPriceMinMax());
+const selectables = computed(
+  () => category.value.filters as FilterSelectProps[],
+);
 </script>
 
 <template>
@@ -90,7 +23,7 @@ const selectables: FilterSelectProps[] = [
     <VBreadcrumbs>
       <VLink to="/">Главная</VLink>
       <VLink>Каталог</VLink>
-      <VLink>{{ category }}</VLink>
+      <VLink>{{ category.name }}</VLink>
     </VBreadcrumbs>
     <div class="grid grid-cols-1 md:grid-cols-5">
       <div class="col-span-1 py-2 md:hidden">
@@ -105,7 +38,7 @@ const selectables: FilterSelectProps[] = [
             <div class="max-w-[75vw] px-8 pb-4">
               <h1>Фильтр</h1>
               <div class="product-filters flex flex-col gap-6 pr-4 pt-4">
-                <FilterRange title="Цена" :min="minPrice" :max="maxPrice" />
+                <FilterRange title="Цена" :min="minMax.min" :max="minMax.max" />
                 <FilterSelect
                   v-for="(item, i) in selectables"
                   :key="i"
@@ -123,7 +56,7 @@ const selectables: FilterSelectProps[] = [
       <div class="col-span-1 hidden px-4 text-lg tracking-tight md:block">
         <h1>Фильтр</h1>
         <div class="product-filters flex flex-col gap-6 pr-4 pt-4">
-          <FilterRange title="Цена" :min="minPrice" :max="maxPrice" />
+          <FilterRange title="Цена" :min="minMax.min" :max="minMax.max" />
           <FilterSelect
             v-for="(item, i) in selectables"
             :key="i"
