@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<VCardSubtitleProps>(), {
 </script>
 
 <template>
-  <div class="v-card-title px-6 text-gray-500">
+  <div class="v-card-subtitle px-6 text-gray-500">
     <slot>
       {{ props.subtitle }}
     </slot>
