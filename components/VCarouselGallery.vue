@@ -4,11 +4,11 @@ import type { PageNav } from "~/types/page.types";
 
 export type VCarouselGalleryProps = {
   images: string[];
-  total?: number;
+  perPage?: number;
 };
 
 const props = withDefaults(defineProps<VCarouselGalleryProps>(), {
-  total: 3,
+  perPage: 3,
 });
 const nav = inject<PageNav>("nav", {
   current: ref(0),
@@ -20,7 +20,7 @@ const nav = inject<PageNav>("nav", {
 const page = ref<number>(0);
 
 const items = computed(() => {
-  return props.images.slice(page.value, page.value + props.total);
+  return props.images.slice(page.value, page.value + props.perPage);
 });
 const selected = computed(() => {
   return nav.current.value - page.value;
@@ -29,7 +29,7 @@ const hasPrev = computed(() => {
   return page.value != 0;
 });
 const hasNext = computed(() => {
-  return page.value != props.images.length - props.total;
+  return page.value != props.images.length - props.perPage;
 });
 
 const select = (relativeIndex: number) => {
@@ -46,17 +46,17 @@ const nextPage = () => {
 
 watch(nav.current, (value) => {
   const min = page.value;
-  const max = page.value + props.total;
+  const max = page.value + props.perPage;
   if (value >= max || value < min) {
-    page.value = value;
+    page.value = Math.min(value, props.images.length - props.perPage);
   }
 });
 watch(selected, (value) => {
   if (value < 0) {
     select(0);
   }
-  if (value >= props.total) {
-    select(props.total - 1);
+  if (value >= props.perPage) {
+    select(props.perPage - 1);
   }
 });
 </script>
@@ -74,7 +74,7 @@ watch(selected, (value) => {
     </li>
     <ul class="flex justify-center gap-2">
       <li
-        v-for="i in Math.min(props.total, props.images.length)"
+        v-for="i in Math.min(props.perPage, props.images.length)"
         :key="i"
         class="v-carousel-gallery__item rounded"
         :class="{ active: i - 1 == selected }"
