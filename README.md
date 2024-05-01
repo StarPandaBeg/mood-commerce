@@ -1,10 +1,39 @@
-# Nuxt 3 Minimal Starter
+<br />
+<p align="center">
+   <a href="https://github.com/StarPandaBeg/mood-commerce">
+    <img src=".github/images/logo.png" alt="Logo" width="128" height="128" />
+   </a>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+   <h3 align="center">Mood - Интернет-магазин одежды</h3>
 
-## Setup
+   <p align="center">
+    PET-проект на Vue+Nuxt</b>
+   </p>
+</p>
 
-Make sure to install the dependencies:
+> 👁 [Демо](https://starpandabeg.github.io/mood-commerce/)
+
+# О проекте
+
+Пример простого интернет-магазина модной одежды. Реализованы три страницы — главная, просмотр списка товаров, просмотр товара.
+
+Создан как пример работы на данном стэке.
+
+Использован минимум сторонних библиотек — необходимые компоненты релизованы с нуля.
+
+### Технологии
+
+<p>
+  <img src=".github/images/nuxt.png" alt="Logo" width="48" height="48" />
+  <img src=".github/images/vue.png" alt="Logo" width="48" height="48" />
+  <img src=".github/images/tailwind.png" alt="Logo" width="48" height="48" />
+  <img src=".github/images/sass.png" alt="Logo" width="48" height="48" />
+  <img src=".github/images/typescript.png" alt="Logo" width="48" height="48" />
+</p>
+
+## Сборка
+
+Установка зависимостей:
 
 ```bash
 # npm
@@ -20,9 +49,9 @@ yarn install
 bun install
 ```
 
-## Development Server
+### Отладка
 
-Start the development server on `http://localhost:3000`:
+Запуск отладочного сервера на `http://localhost:3000/mood-commerce`:
 
 ```bash
 # npm
@@ -38,25 +67,25 @@ yarn dev
 bun run dev
 ```
 
-## Production
+### Production
 
-Build the application for production:
+Production-сборка:
 
 ```bash
 # npm
-npm run build
+npm run generate
 
 # pnpm
-pnpm run build
+pnpm run generate
 
 # yarn
-yarn build
+yarn generate
 
 # bun
-bun run build
+bun run generate
 ```
 
-Locally preview production build:
+Запуск локального предпросмотра сборки:
 
 ```bash
 # npm
@@ -72,4 +101,9 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Больше информации на [официальном сайте Nuxt](https://nuxt.com/docs/getting-started/deployment).
+
+## Лицензия
+
+Распространяется под лицензией MIT.  
+Подробнее - в файле `LICENSE`.
