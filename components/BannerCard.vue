@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { VLinkProps } from "./VLink.vue";
+import type { VLinkProps } from "./v/VLink.vue";
 
 export type BannerCardProps = VLinkProps & {
   title?: string;
@@ -30,3 +30,4 @@ const props = withDefaults(defineProps<BannerCardProps>(), {
     </div>
   </VLink>
 </template>
+./v/VLink.vue
