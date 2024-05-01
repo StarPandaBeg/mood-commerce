@@ -10,7 +10,20 @@ export default <Product[]>[
     image: "/images/products/IbZjjnFUlBlwAhyM.jpg",
     slug: "t-shirt-1",
     additional: {
-      sizes: ["S", "M", "XL"],
+      sizes: [
+        {
+          eu: "S",
+          ru: "46",
+        },
+        {
+          eu: "M",
+          ru: "48",
+        },
+        {
+          eu: "L",
+          ru: "50",
+        },
+      ],
       gender: "м",
       color: "Белый",
     },

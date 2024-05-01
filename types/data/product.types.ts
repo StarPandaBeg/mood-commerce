@@ -7,8 +7,13 @@ export type Product = {
   price: number;
   slug: string;
   additional?: {
-    sizes?: string[];
+    sizes?: ProductSize[] | string[];
     gender?: string;
     color?: string;
   };
+};
+
+export type ProductSize = {
+  eu?: string;
+  ru?: string;
 };

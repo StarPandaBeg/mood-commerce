@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { HeartIcon } from "@heroicons/vue/24/outline";
-import type { Product } from "~/types/data/product.types";
+import type { Product, ProductSize } from "~/types/data/product.types";
 
 const props = defineProps<{
   product: Product;
@@ -10,6 +10,11 @@ const image = computed(() => {
   if (props.product.image != null) return props.product.image;
   return "/images/placeholders/cloth.png";
 });
+
+const getSize = (size: ProductSize | string) => {
+  if (typeof size == "string") return size;
+  return size.eu;
+};
 </script>
 
 <template>
@@ -43,7 +48,7 @@ const image = computed(() => {
             :key="i"
             class="rounded bg-black/5 px-2"
           >
-            {{ size }}
+            {{ getSize(size) }}
           </li>
         </ul>
       </div>
