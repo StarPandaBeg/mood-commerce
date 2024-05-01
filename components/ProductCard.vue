@@ -7,8 +7,9 @@ const props = defineProps<{
 }>();
 const price = useNumberWithSpaces(props.product?.price || 0);
 const image = computed(() => {
-  if (props.product.image != null) return props.product.image;
-  return "/images/placeholders/cloth.png";
+  if (props.product.image != null)
+    return `/mood-commerce/images/products/${props.product.image}`;
+  return "/mood-commerce/images/placeholders/cloth.png";
 });
 
 const getSize = (size: ProductSize | string) => {

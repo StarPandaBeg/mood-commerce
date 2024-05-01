@@ -15,17 +15,17 @@ const product = ref<Product>(
   await $api.products.bySlug(route.params.slug as string),
 );
 const images = [
-  "/images/gallery/1.webp",
-  "/images/gallery/2.webp",
-  "/images/gallery/3.webp",
-  "/images/gallery/4.webp",
-  "/images/gallery/5.webp",
-  "/images/gallery/6.webp",
-  "/images/gallery/7.webp",
-  "/images/gallery/8.webp",
-  "/images/gallery/9.webp",
-  "/images/gallery/10.webp",
-  "/images/gallery/11.webp",
+  "/mood-commerce/images/gallery/1.webp",
+  "/mood-commerce/images/gallery/2.webp",
+  "/mood-commerce/images/gallery/3.webp",
+  "/mood-commerce/images/gallery/4.webp",
+  "/mood-commerce/images/gallery/5.webp",
+  "/mood-commerce/images/gallery/6.webp",
+  "/mood-commerce/images/gallery/7.webp",
+  "/mood-commerce/images/gallery/8.webp",
+  "/mood-commerce/images/gallery/9.webp",
+  "/mood-commerce/images/gallery/10.webp",
+  "/mood-commerce/images/gallery/11.webp",
 ];
 
 const galleryPerPage = useBreakpoints(3, {
