@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 export type VCardTextProps = {
-  noXPadding: boolean;
+  noXPadding?: boolean;
 };
 
 const props = withDefaults(defineProps<VCardTextProps>(), {

@@ -39,10 +39,13 @@ const perSlide = useBreakpoints(2, {
     </VCarousel>
 
     <div class="md:columns-2 md:gap-2">
-      <BannerCard title="Тренды" image-path="/images/banner-2.png" />
+      <BannerCard
+        title="Тренды"
+        image-path="/mood-commerce/images/banner-2.png"
+      />
       <BannerCard
         title="Обувь"
-        image-path="/images/banner-3.png"
+        image-path="/mood-commerce/images/banner-3.png"
         class="pt-1 md:pt-0"
       />
     </div>
@@ -51,7 +54,7 @@ const perSlide = useBreakpoints(2, {
         id="banner-4"
         title="Будь собой"
         subtitle="Коллекции на любой вкус"
-        image-path="/images/banner-4.png"
+        image-path="/mood-commerce/images/banner-4.png"
       />
     </div>
   </div>

@@ -7,7 +7,7 @@ export default <Product[]>[
     brand: "EliteWear",
     type: "Футболка",
     price: 2499,
-    image: "/images/products/IbZjjnFUlBlwAhyM.jpg",
+    image: "IbZjjnFUlBlwAhyM.jpg",
     slug: "t-shirt-1",
     additional: {
       sizes: [
@@ -35,7 +35,7 @@ export default <Product[]>[
     type: "Футболка",
     price: 2799,
     slug: "t-shirt-2",
-    image: "/images/products/rBODlcsQtccuOc9m.jpg",
+    image: "rBODlcsQtccuOc9m.jpg",
     additional: {
       sizes: ["S", "M", "XL"],
       gender: "ж",
@@ -49,7 +49,7 @@ export default <Product[]>[
     type: "Футболка",
     price: 2659,
     slug: "t-shirt-3",
-    image: "/images/products/bNQXnUdCpfp7Z4e9.jpg",
+    image: "bNQXnUdCpfp7Z4e9.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L", "XL"],
       gender: "м",
@@ -63,7 +63,7 @@ export default <Product[]>[
     type: "Футболка",
     price: 2399,
     slug: "t-shirt-4",
-    image: "/images/products/Kl8iFOi5yUeonKiE.jpg",
+    image: "Kl8iFOi5yUeonKiE.jpg",
     additional: {
       sizes: ["M", "L"],
       gender: "м",
@@ -77,7 +77,7 @@ export default <Product[]>[
     type: "Джинсы",
     price: 3999,
     slug: "jeans-1",
-    image: "/images/products/QrP6B93CbzP9ZY3E.jpg",
+    image: "QrP6B93CbzP9ZY3E.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "ж",
@@ -91,7 +91,7 @@ export default <Product[]>[
     type: "Куртка",
     price: 12999,
     slug: "kurtka-tnf-1",
-    image: "/images/products/ZQtXfux5F94tKbzM.jpg",
+    image: "ZQtXfux5F94tKbzM.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "м",
@@ -105,7 +105,7 @@ export default <Product[]>[
     type: "Рубашка",
     price: 2999,
     slug: "shirt-1",
-    image: "/images/products/YyQnzSW7Dq77p9XJ.jpg",
+    image: "YyQnzSW7Dq77p9XJ.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L", "XL"],
       gender: "м",
@@ -119,7 +119,7 @@ export default <Product[]>[
     type: "Рубашка",
     price: 6499,
     slug: "rubashka-rl-1",
-    image: "/images/products/mfGAj8tTdMmz6AU2.jpg",
+    image: "mfGAj8tTdMmz6AU2.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "м",
@@ -133,7 +133,7 @@ export default <Product[]>[
     type: "Пальто",
     price: 19999,
     slug: "palto-1",
-    image: "/images/products/jia5V6V0Cx3XzaSu.jpg",
+    image: "jia5V6V0Cx3XzaSu.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "ж",
@@ -147,7 +147,7 @@ export default <Product[]>[
     type: "Свитер",
     price: 4499,
     slug: "sviter-hm-1",
-    image: "/images/products/yGyjjej5rzS6kXwi.jpg",
+    image: "yGyjjej5rzS6kXwi.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L", "XL"],
       gender: "ж",
@@ -161,7 +161,7 @@ export default <Product[]>[
     type: "Куртка",
     price: 7499,
     slug: "bomber-1",
-    image: "/images/products/Saaarq6h0mAQkETa.jpg",
+    image: "Saaarq6h0mAQkETa.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "м",
@@ -175,7 +175,7 @@ export default <Product[]>[
     type: "Шорты",
     price: 3999,
     slug: "shorty-1",
-    image: "/images/products/UpBiFFPW6D9PdwE1.jpg",
+    image: "UpBiFFPW6D9PdwE1.jpg",
     additional: {
       sizes: ["S", "M", "L", "XL"],
       gender: "ж",
@@ -189,7 +189,7 @@ export default <Product[]>[
     type: "Блузка",
     price: 3799,
     slug: "bluzka-1",
-    image: "/images/products/FG2GDqHf9ZDeJgwU.jpg",
+    image: "FG2GDqHf9ZDeJgwU.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L"],
       gender: "ж",
@@ -203,7 +203,7 @@ export default <Product[]>[
     type: "Костюм",
     price: 28999,
     slug: "kostyum-1",
-    image: "/images/products/cEQ3BFT23S13HYZN.jpg",
+    image: "cEQ3BFT23S13HYZN.jpg",
     additional: {
       sizes: ["S", "M", "L", "XL"],
       gender: "м",
@@ -217,7 +217,7 @@ export default <Product[]>[
     type: "Платье",
     price: 10999,
     slug: "platye-1",
-    image: "/images/products/WS5SHKSzrpH9ApyX.jpg",
+    image: "WS5SHKSzrpH9ApyX.jpg",
     additional: {
       sizes: ["XS", "S", "M"],
       gender: "ж",
@@ -231,7 +231,7 @@ export default <Product[]>[
     type: "Кардиган",
     price: 6999,
     slug: "kardigan-1",
-    image: "/images/products/EA4y0MYe5Mim25QE.jpg",
+    image: "EA4y0MYe5Mim25QE.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "ж",
@@ -245,7 +245,7 @@ export default <Product[]>[
     type: "Куртка",
     price: 17999,
     slug: "puhovik-1",
-    image: "/images/products/wezhCiTdnyMdfBEk.jpg",
+    image: "wezhCiTdnyMdfBEk.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L"],
       gender: "м",
@@ -259,7 +259,7 @@ export default <Product[]>[
     type: "Футболка",
     price: 2999,
     slug: "t-shirt-5",
-    image: "/images/products/7HtD1cU3gif3SzEg.jpg",
+    image: "7HtD1cU3gif3SzEg.jpg",
     additional: {
       sizes: ["S", "M", "L"],
       gender: "м",
@@ -273,7 +273,7 @@ export default <Product[]>[
     type: "Толстовка",
     price: 4599,
     slug: "tolstovka-1",
-    image: "/images/products/U43h2j00nRbqKB2N.jpg",
+    image: "U43h2j00nRbqKB2N.jpg",
     additional: {
       sizes: ["XS", "S", "M", "L", "XL"],
       gender: "м",
@@ -287,7 +287,7 @@ export default <Product[]>[
     type: "Пиджак",
     price: 12999,
     slug: "bleyzer-1",
-    image: "/images/products/KU6Sh8er91rBGD0H.jpg",
+    image: "KU6Sh8er91rBGD0H.jpg",
     additional: {
       sizes: ["S", "M", "L", "XL"],
       gender: "м",
