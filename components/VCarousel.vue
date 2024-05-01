@@ -8,6 +8,7 @@ export type VCarouselProps = {
   autoPlay?: number;
   perSlide?: number;
   scrollFull?: boolean;
+  dense?: boolean;
 };
 
 const props = withDefaults(defineProps<VCarouselProps>(), {
@@ -64,11 +65,12 @@ onBeforeUpdate(() => {
 </script>
 
 <template>
-  <div class="v-carousel relative">
+  <div class="v-carousel relative" :class="{ dense: props.dense }">
     <div class="v-carousel__viewport overflow-x-hidden">
       <ul
         ref="itemParent"
-        class="v-carousel__items flex w-full py-4 transition-all"
+        class="v-carousel__items flex w-full transition-all"
+        :class="{ 'py-4': !props.dense }"
         :style="{ transform: transform }"
         @wheel="onScroll"
       >
@@ -83,6 +85,14 @@ onBeforeUpdate(() => {
 .v-carousel__items {
   .v-carousel__item {
     width: v-bind(itemWidth);
+  }
+}
+
+.v-carousel {
+  &.dense {
+    .v-carousel-gallery {
+      @apply pt-4;
+    }
   }
 }
 </style>
