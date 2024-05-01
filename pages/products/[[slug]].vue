@@ -42,7 +42,7 @@ const galleryPerPage = useBreakpoints(3, {
       <VLink>{{ product.brand }}</VLink>
       <VLink>{{ product.name }}</VLink>
     </VBreadcrumbs>
-    <div class="grid grid-cols-1 gap-4 pt-2 md:grid-cols-3">
+    <div class="grid grid-cols-1 pt-2 md:grid-cols-3 md:gap-4">
       <VCarousel dense>
         <VCarouselItem v-for="(image, i) in images" :key="i">
           <img :src="image" class="w-full object-contain" />
@@ -53,7 +53,7 @@ const galleryPerPage = useBreakpoints(3, {
           <VCarouselNavigation hover />
         </template>
       </VCarousel>
-      <VCard variant="plain" class="flex flex-col py-2">
+      <VCard variant="plain" class="flex flex-col md:py-2">
         <VCardItem>
           <VChip class="my-2">{{ product.brand }}</VChip>
           <VCardTitle class="!font-bold">{{ product.name }}</VCardTitle>
@@ -132,7 +132,7 @@ const galleryPerPage = useBreakpoints(3, {
         </VCardItem>
       </VCard>
       <VCard variant="plain">
-        <VCardText class="h-full px-8" no-x-padding>
+        <VCardText class="h-full md:px-8" no-x-padding>
           <div class="sticky top-4">
             <VCard>
               <VCardItem>
